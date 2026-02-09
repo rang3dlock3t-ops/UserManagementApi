@@ -15,7 +15,9 @@ namespace UserManagementApi.Models
         public string UserEmail { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
+
+        public string Role = "User";
 
 
         public User()

@@ -14,9 +14,9 @@ namespace UserManagementApi.Models
             _hasher = hasher;
             _users = new List<User>()
             {
-                new(){UserName="Cesar",UserEmail="Cesar123@gmail.com",Password= _hasher.HashPassword(null!,"123456")},
-                 new(){UserName="ibdbwie",UserEmail="Rbcudecb@gmail.com",Password= _hasher.HashPassword(null!,"ioibuy#")},
-                 new(){UserName="ecnenco",UserEmail="123@gmail.com",Password= _hasher.HashPassword(null!,"123#4444")}
+                new(){UserName="Cesar",UserEmail="Admin123@gmail.com",PasswordHash= _hasher.HashPassword(null!,"123456"),Role="Admin"},
+                 new(){UserName="ibdbwie",UserEmail="Rbcudecb@gmail.com",PasswordHash= _hasher.HashPassword(null!,"ioibuy#"), Role = "User"},
+                 new(){UserName="ecnenco",UserEmail="123@gmail.com",PasswordHash= _hasher.HashPassword(null!,"123#4444"), Role = "User"}
             };
         
         }

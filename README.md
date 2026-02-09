@@ -7,7 +7,6 @@
 This project is a simple ASP.NET Core Web API for managing users. It includes JWT authentication, role-based authorization, validation, and custom middleware for error handling and logging.
 
 ---
-
 ## Features
 
 - Full CRUD operations for users (Create, Read, Update, Delete).
@@ -41,25 +40,23 @@ UserManagementApi/
 │   └── InMemoryUserRepository.cs
 └── Program.cs
 ```
+___
 
-Authentication and Authorization
-#### **1. Login** (the user below has the admin role)
-Endpoint: POST /api/users/login
-Request body:
+## Authentication and Authorization
+
+### **1. Login** (the user below has the admin role)
+**Endpoint:** POST /api/users/login
+**Request body:**
 ```JSON
-
-
 {
   "userEmail": "Admin123@gmail.com",
   "password": "123456"
 }
 ```
 
-Response:
+**Response:**
 
 ```JSON
-
-
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
@@ -69,8 +66,6 @@ Response:
 Include the token in the request header:
 
 ```HTTP
-
-
 Authorization: Bearer <token>
 ````
 #### **Protected endpoints**
@@ -88,34 +83,44 @@ Authorization: Bearer <token>
 - GET /api/users/profile → Get information about the authenticated user.
 - GET /api/users/admin → Accessible only to Admin users.
 
-Swagger Integration
-Open Swagger at https://localhost:5001/swagger.
-Use the login endpoint to obtain a JWT token.
-Click Authorize in Swagger UI.
-Paste the token in the format:
+## Swagger Integration
+- Open Swagger at https://localhost:5001/swagger.
+- Use the login endpoint to obtain a JWT token.
+- Click Authorize in Swagger UI.
+- Paste the token in the format:
+  
 ```Plaintext
 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
-
 Swagger will automatically include the token in subsequent requests to protected endpoints.
-How Copilot Helped
-Copilot assisted throughout the development process by:
-Explaining best practices for middleware (global error handling vs. try/catch in each endpoint).
-Guiding the implementation of JWT authentication and role-based authorization.
-Helping debug common issues:
-401 Unauthorized: by checking issuer, audience, and claims.
-415 Unsupported Media Type: by correcting Content-Type and [FromBody].
-IDX10720: by ensuring the secret key length was sufficient for HS256.
-Suggesting project organization into folders (Controllers, DTO, Middleware, Services).
-Providing examples of validation with DataAnnotations.
-Documenting how to configure Swagger with JWT support.
-Offering clear explanations and structured summaries to ensure the project met evaluation criteria.
-Conclusion
-This API demonstrates:
-Complete CRUD functionality.
-Middleware for error handling and logging.
-Validation of input data.
-Secure authentication and authorization with JWT.
-Clear documentation and testing support via Swagger.
-Effective use of Copilot for debugging, design decisions, and documentation.
+
+---
+## How Copilot Helped
+
+### Copilot assisted throughout the development process by:
+
+ - Explaining best practices for middleware (global error handling vs.
+    try/catch in each endpoint).
+ - Guiding the implementation of JWT authentication and role-based
+    authorization.
+ - Helping debug common issues:
+	 - **401 Unauthorized**: by checking issuer, audience, and claims. 
+	 - **415 Unsupported Media Type**: by correcting Content-Type.
+	  - **IDX10720**: by ensuring the secret key length was sufficient for HS256.
+	  - **Suggesting project organization into folders** (Controllers, DTO, Middleware, Services).
+	   
+ - Providing examples of validation with DataAnnotations. 
+ - Documenting how to configure Swagger with JWT support. 
+ - Offering clear explanations and structured summaries to ensure the project met evaluation criteria.
+___
+
+## Summary
+
+### This API demonstrates:
+- Complete CRUD functionality.
+- Middleware for error handling and logging.
+- Validation of input data.
+- Secure authentication and authorization with JWT.
+- Clear documentation and testing support via Swagger.
+- Effective use of Copilot for debugging, design decisions, and documentation.
 

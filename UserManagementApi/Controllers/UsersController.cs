@@ -55,7 +55,7 @@ namespace UserManagementApi.Controllers
                 signingCredentials: creds
             );
 
-            Console.WriteLine("hola");
+            Console.WriteLine("hola123");
             return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
         }
         [Authorize(Roles ="Admin")]

@@ -27,6 +27,7 @@ namespace UserManagementApi.Controllers
             _hasher = passwordHasher;
             _configuration = configuration;
         }
+
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginDto dto)
         {
@@ -54,6 +55,7 @@ namespace UserManagementApi.Controllers
                 signingCredentials: creds
             );
 
+            Console.WriteLine("hola");
             return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
         }
         [Authorize(Roles ="Admin")]
